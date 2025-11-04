@@ -223,8 +223,15 @@
       header p { font-size: 0.95rem; }
       .buttons { flex-direction: column; }
 
+      /* 🟢 Hide iframe on mobile */
       iframe { display: none; }
-      .mobile-cv { display: block; margin-top: 10px; }
+
+      /* 🟢 Show Download CV link instead */
+      .mobile-cv { 
+        display: block;
+        margin-top: 10px;
+      }
+
       section { margin: 40px 15px; padding: 20px; }
     }
   </style>
@@ -237,7 +244,8 @@
     <p>System Engineer | Cloud & DevOps Enthusiast</p>
     <div class="buttons">
       <button class="show-btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About Me</button>
-      <!-- 🔻 Replaced “Open CV” / “Show CV” with direct download -->
+      <button class="show-btn" onclick="document.getElementById('cv-section').scrollIntoView({behavior:'smooth'})">Show CV</button>
+      <!-- 🟢 Make the download button work properly on mobile by opening the PDF in a new tab -->
       <a class="download-btn" href="Eslam-Fawzi.CV.pdf" download>Download CV</a>
     </div>
   </header>
@@ -273,9 +281,11 @@
 
   <section id="cv-section">
     <h2>My CV</h2>
+    <!-- 🟢 Hidden on mobile -->
     <iframe src="Eslam-Fawzi.CV.pdf"></iframe>
+    <!-- 🟢 Shown only on mobile -->
     <div class="mobile-cv">
-      <p>📄 Download directly: <a href="Eslam-Fawzi.CV.pdf" download>Download CV</a></p>
+      <p>📄 View CV directly: <a href="Eslam-Fawzi.CV.pdf" target="_blank" rel="noopener noreferrer">Download CV</a></p>
     </div>
   </section>
 
@@ -286,6 +296,7 @@
   <button id="scrollTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
 
   <script>
+    // Fade-in animations
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -294,12 +305,14 @@
     }, { threshold: 0.15 });
     sections.forEach(section => observer.observe(section));
 
+    // Scroll-to-top button
     const scrollBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) scrollBtn.classList.add('visible');
       else scrollBtn.classList.remove('visible');
     });
 
+    // Theme toggle with persistence
     const themeBtn = document.querySelector('.toggle-theme');
     function toggleTheme() {
       document.body.classList.toggle('light');
@@ -308,6 +321,7 @@
       localStorage.setItem('theme', mode);
     }
 
+    // Load saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
       document.body.classList.add('light');
