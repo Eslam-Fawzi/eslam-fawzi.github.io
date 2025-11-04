@@ -1,78 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eslam Fawzi - CV</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        h1, h2 {
-            color: #2c3e50;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eslam Fawzi - Portfolio</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #1d3557, #457b9d);
+      color: #fff;
+    }
+    header img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #fff;
+    }
+    header h1 { font-size: 2.2rem; margin-bottom: 10px; }
+    header p { margin-bottom: 20px; font-size: 1rem; opacity: 0.9; }
+    .buttons {
+      display: flex;
+      gap: 15px;
+    }
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .show-btn { background: #f1faee; color: #1d3557; }
+    .show-btn:hover { background: #a8dadc; }
+    .download-btn { background: #e63946; color: #fff; }
+    .download-btn:hover { background: #d62839; }
+    section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    iframe {
+      width: 100%;
+      height: 1000px;
+      border: none;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Eslam Fawzi Metwally</h1>
-        <p>Email: <a href="mailto:eslamfawzi413@gmail.com">eslamfawzi413@gmail.com</a></p>
-        <p>Phone: 01096968228</p>
-        <p>Location: Nasr city, Egypt</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/eslam-fawzi/">/eslam-fawzi</a></p>
-        
-        <h2>Education</h2>
-        <p>Bachelor of Computers and Systems Engineering, Faculty of Engineering, Zagazig University (05/2023)</p>
-
-        <h2>Experience</h2>
-        <ul>
-            <li><strong>System Administrator</strong>, Mercury Visual Solutions (11/2023 - 08/2024)</li>
-            <li><strong>System Engineer</strong>, Mercury Visual Solutions (08/2024 - Present)</li>
-        </ul>
-
-        <h2>Skills</h2>
-        <ul>
-            <li>System Administration: Windows Server, Red Hat Linux, Nginx, Apache</li>
-            <li>Programming: Python, Bash, C</li>
-            <li>Cloud: AWS, Azure</li>
-            <li>DevOps: Docker, Kubernetes, Jenkins, Git, GitHub</li>
-        </ul>
-
-        <h2>Projects</h2>
-        <ul>
-            <li><strong>OpenCue</strong>, Distributed render system deployment</li>
-            <li><strong>Ayon</strong>, Management system deployment using Kubernetes & Docker</li>
-        </ul>
-
-        <h2>Languages</h2>
-        <ul>
-            <li>Arabic</li>
-            <li>English</li>
-        </ul>
-
-        <h2>Certificates</h2>
-        <ul>
-            <li>HCIA Security (Nov-2020)</li>
-            <li>VMware Certified Professional - Data Center Virtualization (Oct-2023)</li>
-        </ul>
+  <header>
+    <img src="your-photo.jpg" alt="Eslam Fawzi" />
+    <h1>Eslam Fawzi</h1>
+    <p>System Engineer | Cloud & DevOps Enthusiast</p>
+    <div class="buttons">
+      <button class="show-btn" onclick="document.getElementById('cv-section').scrollIntoView({behavior:'smooth'})">Show CV</button>
+      <button class="download-btn" onclick="window.location.href='Eslam-Fawzi.CV.pdf'">Download CV</button>
     </div>
+  </header>
+
+  <section id="cv-section">
+    <iframe src="Eslam-Fawzi.CV.pdf"></iframe>
+  </section>
+
+  <footer>
+    &copy; 2025 Eslam Fawzi. All rights reserved.
+  </footer>
 </body>
 </html>
