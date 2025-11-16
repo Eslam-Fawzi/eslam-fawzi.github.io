@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Eslam Fawzi, a System Engineer specializing in cloud platforms, infrastructure automation, and DevOps.">
+  <meta name="keywords" content="Eslam Fawzi, System Engineer, DevOps, Cloud, Automation, Portfolio, CV">
+  
+  <title>Eslam Fawzi - Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      line-height: 1.7;
+      overflow-x: hidden;
+      transition: background 0.4s ease, color 0.4s ease;
+      /* ✨ Added for smoother text rendering */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ✨ Subtle Custom Scrollbar (WebKit) */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d1117;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2b3648;
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3a4b63;
+    }
+
+    /* 🌙 Dark Mode */
+    header {
+      background: linear-gradient(135deg, #0a192f, #112240);
+      color: #fff;
+    }
+    section {
+      background: #161b22;
+      color: #c9d1d9;
+    }
+    section h2 {
+      color: #4ea8de;
+      border-bottom: 2px solid #4ea8de;
+    }
+    a { color: #74c0fc; }
+    a:hover, a:focus { color: #a5d8ff; }
+    .show-btn { background: #4ea8de; color: #fff; }
+    .show-btn:hover, .show-btn:focus { background: #3b82c4; }
+    .download-btn { background: #dc3545; color: #fff; }
+    .download-btn:hover, .download-btn:focus { background: #b02a37; }
+    footer { color: #8b949e; }
+    .toggle-theme:hover, .toggle-theme:focus { background: #4ea8de; color: #fff; }
+    #scrollTop:hover, #scrollTop:focus { background: #3b82c4; }
+
+
+    /* ☀️ Light Mode */
+    body.light {
+      background: #f2f4f7;
+      color: #1c1e21;
+    }
+    body.light::-webkit-scrollbar-track {
+      background: #e9ecf1;
+    }
+    body.light::-webkit-scrollbar-thumb {
+      background: #b0b8c4;
+    }
+    body.light::-webkit-scrollbar-thumb:hover {
+      background: #98a1ad;
+    }
+
+    body.light header {
+      background: linear-gradient(135deg, #e9ecf1, #d7dbe0);
+      color: #111;
+    }
+    body.light section {
+      background: #ffffff;
+      color: #2b2b2b;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    body.light section h2 {
+      color: #1f4e79;
+      border-bottom: 2px solid #1f4e79;
+    }
+    body.light a { color: #1f4e79; }
+    body.light a:hover, body.light a:focus { color: #2b6cb0; }
+    body.light .show-btn { background: #1f4e79; color: #fff; }
+    body.light .show-btn:hover, body.light .show-btn:focus { background: #174067; }
+    body.light .download-btn { background: #b3261e; color: #fff; }
+    body.light .download-btn:hover, body.light .download-btn:focus { background: #9a2017; }
+    body.light footer { color: #555; }
+    
+    body.light .toggle-theme {
+      border-color: #1f4e79;
+      color: #1f4e79;
+    }
+    body.light .toggle-theme:hover, body.light .toggle-theme:focus {
+      background: #1f4e79;
+      color: #fff;
+    }
+    body.light .contact-item i {
+      color: #1f4e79;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 70px 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid #4ea8de;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    header img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(78,168,222,0.6);
+    }
+
+    header h1 { font-size: 2.4rem; margin-bottom: 10px; font-weight: 600; }
+    header p { margin-bottom: 25px; opacity: 0.9; font-size: 1.1rem; }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    .buttons button, .buttons a {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .toggle-theme {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: 2px solid #4ea8de;
+      color: #4ea8de;
+      border-radius: 8px;
+      padding: 8px 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    /* ✨ Accessibility: Added focus states for keyboard navigation */
+    .show-btn:focus {
+      outline: 2px solid #74c0fc;
+      outline-offset: 2px;
+    }
+    .download-btn:focus {
+      outline: 2px solid #dc3545;
+      outline-offset: 2px;
+    }
+    .toggle-theme:focus {
+      outline: 2px solid #4ea8de;
+      outline-offset: 2px;
+    }
+    a:focus {
+      outline: 2px solid #74c0fc;
+      outline-offset: 2px;
+      border-radius: 4px; /* To make the outline look neater */
+    }
+    /* Light mode focus states */
+    body.light .show-btn:focus {
+      outline-color: #1f4e79;
+    }
+    body.light .download-btn:focus {
+      outline-color: #b3261e;
+    }
+    body.light .toggle-theme:focus {
+      outline-color: #1f4e79;
+    }
+    body.light a:focus {
+      outline-color: #1f4e7D;
+    }
+
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 30px;
+      border-radius: 12px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      margin-bottom: 15px;
+      display: inline-block;
+      padding-bottom: 5px;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    iframe {
+      width: 100%;
+      height: 1000px;
+      border: none;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .mobile-cv {
+      display: none;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 1rem;
+      /* ✨ Added for hover transition */
+      transition: transform 0.3s ease;
+    }
+    /* ✨ Polish: Add hover effect to contact items */
+    .contact-item:hover {
+      transform: translateX(5px);
+    }
+    .contact-item i {
+      font-size: 1.2rem;
+      color: #4ea8de;
+      /* ✨ Added for light mode icon color */
+      transition: color 0.4s ease;
+    }
+    body.light .contact-item i {
+      color: #1f4e79;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+    }
+
+    /* Scroll-to-top */
+    #scrollTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #4ea8de;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+      z-index: 999;
+    }
+    #scrollTop.visible { opacity: 1; visibility: visible; }
+    #scrollTop:hover { transform: translateY(-4px); }
+
+    /* ✨ Accessibility: Focus state for scroll-to-top */
+    #scrollTop:focus {
+      transform: translateY(-4px);
+      outline: 2px solid #74c0fc;
+      outline-offset: 2px;
+    }
+    body.light #scrollTop:focus {
+      outline-color: #1f4e79;
+    }
+
+
+    /* 📱 Mobile Adjustments */
+    @media (max-width: 768px) {
+      header { padding: 50px 15px; }
+      header h1 { font-size: 1.8rem; }
+      header p { font-size: 0.95rem; }
+      .buttons { flex-direction: column; }
+
+      /* 🟢 Hide iframe on mobile */
+      iframe { display: none; }
+
+      /* 🟢 Show Download CV link instead */
+      .mobile-cv { 
+        display: block;
+        margin-top: 10px;
+      }
+
+      section { margin: 40px 15px; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="toggle-theme" onclick="toggleTheme()">☀️ Light</button>
+    <img src="eslam-img.jpeg" alt="Eslam Fawzi" />
+    <h1>Eslam Fawzi</h1>
+    <p>System Engineer | Cloud & DevOps Enthusiast</p>
+    <div class="buttons">
+      <button class="show-btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About Me</button>
+      <button class="show-btn" onclick="document.getElementById('cv-section').scrollIntoView({behavior:'smooth'})">Show CV</button>
+      <a class="download-btn" href="Eslam-Fawzi.CV.pdf" download>Download CV</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I’m a System Engineer specializing in infrastructure automation, cloud platforms, and DevOps workflows.  
+        Passionate about designing scalable environments, I combine strong technical expertise with a focus on 
+        performance, security, and maintainability. My work bridges operations and development to enable continuous delivery.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-item">
+        <i class="bi bi-envelope"></i>
+        <a href="mailto:eslamfawzi413@gmail.com">eslamfawzi413@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <i class="bi bi-telephone"></i>
+        <a href="tel:+201096968228">+20 109 696 8228</a>
+      </div>
+      <div class="contact-item">
+        <i class="bi bi-whatsapp"></i>
+        <a href="https://wa.me/201096968228" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+      </div>
+      <div class="contact-item">
+        <i class="bi bi-linkedin"></i>
+        <a href="https://www.linkedin.com/in/eslam-fawzi/" target="_blank" rel="noopener noreferrer">linkedin.com/in/eslam-fawzi</a>
+      </div>
+    </section>
+
+    <section id="cv-section">
+      <h2>My CV</h2>
+      <iframe src="Eslam-Fawzi.CV.pdf" title="Eslam Fawzi's CV"></iframe>
+      <div class="mobile-cv">
+        <p>📄 View CV directly: <a href="Eslam-Fawzi.CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Eslam Fawzi. All rights reserved.
+  </footer>
+
+  <button id="scrollTop" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Scroll to top">↑</button>
+
+  <script>
+    // Fade-in animations
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+    sections.forEach(section => observer.observe(section));
+
+    // Scroll-to-top button
+    const scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) scrollBtn.classList.add('visible');
+      else scrollBtn.classList.remove('visible');
+    });
+
+    // Theme toggle with persistence
+    const themeBtn = document.querySelector('.toggle-theme');
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+      const mode = document.body.classList.contains('light') ? 'light' : 'dark';
+      themeBtn.textContent = mode === 'light' ? '🌙 Dark' : '☀️ Light';
+      localStorage.setItem('theme', mode);
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light');
+      themeBtn.textContent = '🌙 Dark';
+    }
+  </script>
+</body>
+</html>
